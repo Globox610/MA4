@@ -1,0 +1,55 @@
+Program should take int input from user to choose what to do. User chooses via menu with 7 different options. 
+Print out prompt with all choices. 
+Recieve input via scanner class and then decide what to do via switch
+
+Options to choose from are: 
+
+1. Insert items
+2. Remove an item
+3. Display a list of items
+4. Register a sale
+5. Display sales history
+6. Sort and display sales history table
+q. Quit
+Your Selection:
+
+
+Methods to create:
+
+Menu();, here we print prompt aswell as call Input();, after that we return what the inputmethod recieved
+
+Input();, here we recieve input as an integer, after validating with hasnext, input can be 1-6 to be valid otherwise ask again. If user
+types q the program should exit.
+
+insertItems(final int[][] items, final int lastItemId, final int noOfItems), the method should first check if the array
+needs to be extended by calling the method checkFull (final int[][] items, final int noOfItems), and if it returns 
+true it means that the arrays first row is full and extend method will be called.
+
+After checking length we create a for loop going through all noOfItems and calculating the count of items and also price. This is 
+after added into the correct index by calling another method to check the current amount of items.
+Use items[i + currentarrayrowlength(items)] = new int[]{ID,itemcount,price};
+
+the currentarrayrowlength can just recieve (int[][] items)
+counter = 0;
+and then check first row for (int[] items : items)
+counter++;
+return counter;
+
+
+
+to validate array the checkfull takes in the array int[][] items and also the variabel numberofitems which is added upon during the
+insertItems loop. a variabel is initialized inside the method that counts items oldItems = 0;, then the loop checks the amount
+insde for(int[] items : items). outside the foreach loop we return olditems + numberofitems > items.length;
+
+if checkfull returns true then we call a second method public static int [][] extendArray(int[][] items, numberofitems)
+new length is int newSize = items.length + numberofitems;
+new array is int[][] newArray = new int[newsize][items[0].length]   //items[0].length returns how many columns there is
+
+Then we have to add all the old values from the old array to the new
+
+for (int i = 0; i < items.length; i++)
+{
+    newArray[i] = items[i];
+}
+
+then we return newArray;
